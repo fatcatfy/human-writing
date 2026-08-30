@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "活人感写作 Skill · 运行时架构",
+    "locale": "zh-CN",
+    "output": "human-writing-architecture.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/fatcatfy/human-writing",
+      "revision": "4fda173f3fef7fb808f3eba991eeb2528ea4b189"
+    },
+    "views": [
+      {
+        "id": "main-path",
+        "label": "写作主路径",
+        "focus": ["user", "agent", "skill", "prose", "revision", "checker"],
+        "note": "从写作请求到禁令清零交稿的主路径。"
+      },
+      {
+        "id": "routing",
+        "label": "规则分流",
+        "focus": ["skill", "prose", "reality", "fiction", "formats"],
+        "note": "SKILL.md 按任务性质分流读取参考文件。"
+      },
+      {
+        "id": "fallback",
+        "label": "分发与降级",
+        "focus": ["github", "lite", "chat"],
+        "note": "安装来源与不支持 Skill 时的蒸馏版路径。"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "user",
+      "type": "external",
+      "label": "用户",
+      "sublabel": "写作请求与材料",
+      "pos": [40, 300],
+      "size": [120, 60],
+      "sources": [{ "path": "human-writing/agents/openai.yaml" }]
+    },
+    {
+      "id": "agent",
+      "type": "frontend",
+      "label": "Agent 宿主",
+      "sublabel": "Claude Code / IDE Agent",
+      "pos": [240, 300],
+      "size": [140, 60]
+    },
+    {
+      "id": "skill",
+      "type": "backend",
+      "label": "SKILL.md 入口",
+      "sublabel": "材料门槛 · 分流 · 交付禁令",
+      "tag": "编排核心",
+      "pos": [450, 298],
+      "size": [150, 64],
+      "sources": [{ "path": "human-writing/SKILL.md" }]
+    },
+    {
+      "id": "prose",
+      "type": "backend",
+      "label": "长帖散文规则",
+      "sublabel": "forum-prose.md",
+      "pos": [660, 300],
+      "size": [140, 60],
+      "sources": [{ "path": "human-writing/references/forum-prose.md" }]
+    },
+    {
+      "id": "reality",
+      "type": "backend",
+      "label": "现实事实边界",
+      "sublabel": "reality.md",
+      "pos": [660, 130],
+      "size": [140, 60],
+      "sources": [{ "path": "human-writing/references/reality.md" }]
+    },
+    {
+      "id": "fiction",
+      "type": "backend",
+      "label": "虚构创作规则",
+      "sublabel": "fiction.md",
+      "pos": [870, 130],
+      "size": [140, 60],
+      "sources": [{ "path": "human-writing/references/fiction.md" }]
+    },
+    {
+      "id": "formats",
+      "type": "backend",
+      "label": "特殊形式规则",
+      "sublabel": "formats.md",
+      "pos": [1080, 130],
+      "size": [140, 60],
+      "sources": [{ "path": "human-writing/references/formats.md" }]
+    },
+    {
+      "id": "revision",
+      "type": "backend",
+      "label": "改稿清单",
+      "sublabel": "revision.md",
+      "pos": [870, 300],
+      "size": [140, 60],
+      "sources": [{ "path": "human-writing/references/revision.md" }]
+    },
+    {
+      "id": "checker",
+      "type": "backend",
+      "label": "禁令检查脚本",
+      "sublabel": "check_prose.py",
+      "tag": "Python 3 · 本地 CLI",
+      "pos": [1080, 298],
+      "size": [150, 64],
+      "sources": [{ "path": "human-writing/scripts/check_prose.py" }]
+    },
+    {
+      "id": "github",
+      "type": "cloud",
+      "label": "GitHub Releases",
+      "sublabel": "KKKKhazix/human-writing",
+      "pos": [240, 460],
+      "size": [140, 60],
+      "sources": [{ "path": "README.md" }]
+    },
+    {
+      "id": "lite",
+      "type": "backend",
+      "label": "蒸馏版 Lite",
+      "sublabel": "dist/human-writing-lite.md",
+      "tag": "导出产物",
+      "pos": [450, 460],
+      "size": [150, 60],
+      "sources": [{ "path": "human-writing/dist/human-writing-lite.md" }]
+    },
+    {
+      "id": "chat",
+      "type": "external",
+      "label": "聊天窗口",
+      "sublabel": "ChatGPT · 千问等",
+      "pos": [660, 460],
+      "size": [140, 60]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "本机 Agent 运行环境 ~/.agents/skills/",
+      "wraps": ["agent", "skill", "prose", "reality", "fiction", "formats", "revision", "checker"]
+    },
+    {
+      "kind": "security-group",
+      "label": "human-writing 包 · 规则信任边界",
+      "wraps": ["skill", "prose", "reality", "fiction", "formats", "revision", "checker"]
+    }
+  ],
+  "connections": [
+    { "id": "user-to-agent", "from": "user", "to": "agent", "label": "写作请求", "variant": "emphasis" },
+    { "id": "agent-load-skill", "from": "agent", "to": "skill", "label": "加载 Skill", "variant": "emphasis" },
+    { "id": "skill-to-reality", "from": "skill", "to": "reality", "label": "现实稿加读", "fromSide": "top", "toSide": "bottom" },
+    { "id": "skill-to-fiction", "from": "skill", "to": "fiction", "label": "虚构稿改读", "fromSide": "top", "toSide": "bottom", "labelDx": 40 },
+    { "id": "skill-to-formats", "from": "skill", "to": "formats", "label": "特殊形式加读", "fromSide": "top", "toSide": "bottom" },
+    { "id": "skill-to-prose", "from": "skill", "to": "prose", "label": "按任务读取", "variant": "emphasis" },
+    { "id": "prose-to-revision", "from": "prose", "to": "revision", "label": "初稿完成后", "variant": "emphasis" },
+    { "id": "revision-to-checker", "from": "revision", "to": "checker", "label": "硬禁令检查", "variant": "emphasis" },
+    { "id": "checker-retry", "from": "checker", "to": "revision", "label": "未清零 · 修改重查", "variant": "dashed", "fromSide": "bottom", "toSide": "bottom" },
+    { "id": "github-install", "from": "github", "to": "agent", "label": "安装 Skill 包", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "lite-to-chat", "from": "lite", "to": "chat", "label": "粘贴五条规则", "variant": "dashed", "labelDy": 54 }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "写作主路径",
+      "items": [
+        "非虚构长文先过材料门槛，列不出五件具体材料就不动笔",
+        "参考文件按任务命中读取，revision.md 留到初稿之后",
+        "check_prose.py 失败就继续修改，直到硬禁令清零"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Skill 包内",
+      "items": [
+        "五个 references 分管长帖、现实、虚构、特殊形式与改稿",
+        "检查器只执行写明的硬禁令，翻案腔变形与统计项只警告",
+        "交稿只交作品本体，不展示提纲、规则检查与创作过程"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "边界之外",
+      "items": [
+        "GitHub Releases 是唯一安装来源，MIT 协议，无第三方语料",
+        "环境不支持 Skill 时改用两千字蒸馏版，粘贴进聊天窗口",
+        "不建立作者画像，不生成个人规则库或新 Skill"
+      ]
+    }
+  ]
+}
