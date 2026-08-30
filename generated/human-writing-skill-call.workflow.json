@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "活人感写作 · 一次 Skill 调用",
+    "locale": "zh-CN",
+    "output": "human-writing-skill-call.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "full-run",
+        "label": "一次完整调用",
+        "focus": ["user", "load", "gate", "routing", "refs", "draft", "revise", "check", "deliver"],
+        "note": "从写作请求到禁令清零交稿的完整路径。"
+      },
+      {
+        "id": "material-gate",
+        "label": "材料关口",
+        "focus": ["gate", "research", "ask", "short", "routing"],
+        "note": "门槛不过的三条出路，和补齐材料后回到主路径。"
+      },
+      {
+        "id": "revise-loop",
+        "label": "改稿循环",
+        "focus": ["draft", "revise", "check"],
+        "note": "初稿之后逐遍改稿，脚本不通过就打回重改。"
+      }
+    ],
+    "viewBox": [960, 920]
+  },
+  "lanes": [
+    { "id": "ui", "label": "用户与交稿" },
+    { "id": "flow", "label": "编排与门槛" },
+    { "id": "rules", "label": "规则加载" },
+    { "id": "writing", "label": "写作执行" },
+    { "id": "verify", "label": "校验" },
+    { "id": "fallback", "label": "材料不足处理", "variant": "exception" }
+  ],
+  "phases": [
+    { "id": "p-intake", "label": "调用 · 加载", "fromCol": 0, "toCol": 1 },
+    { "id": "p-gate", "label": "材料关口 · 分流", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "p-write", "label": "写作 · 校验 · 交付", "fromCol": 4, "toCol": 5 }
+  ],
+  "mainPath": ["user", "load", "gate", "routing", "refs", "draft", "revise", "check", "deliver"],
+  "nodes": [
+    { "id": "user", "lane": "ui", "col": 0, "type": "external", "label": "用户调用", "sublabel": "使用 $human-writing" },
+    { "id": "deliver", "lane": "ui", "col": 5, "type": "backend", "label": "交稿", "sublabel": "只交作品本体" },
+    { "id": "load", "lane": "flow", "col": 0, "type": "backend", "label": "加载 SKILL.md", "sublabel": "入口 · 编排核心" },
+    { "id": "gate", "lane": "flow", "col": 2, "type": "security", "label": "材料门槛", "sublabel": "非虚构列五件材料", "tag": "先于提纲" },
+    { "id": "routing", "lane": "flow", "col": 3, "type": "backend", "label": "文体分流", "sublabel": "现实 / 虚构 / 混合" },
+    { "id": "refs", "lane": "rules", "col": 4, "type": "database", "label": "按需读参考文件", "sublabel": "按文体命中加读", "tag": "revision 留初稿后" },
+    { "id": "draft", "lane": "writing", "col": 4, "type": "backend", "label": "写初稿", "sublabel": "先内部定位说话位置" },
+    { "id": "revise", "lane": "writing", "col": 5, "type": "backend", "label": "逐遍改稿", "sublabel": "读 revision.md" },
+    { "id": "check", "lane": "verify", "col": 5, "type": "backend", "label": "禁令检查", "sublabel": "check_prose.py", "tag": "失败继续修改" },
+    { "id": "research", "lane": "fallback", "col": 2, "type": "cloud", "label": "检索补材料", "sublabel": "事实型 · 公开来源" },
+    { "id": "ask", "lane": "fallback", "col": 3, "type": "external", "label": "追问用户", "sublabel": "亲历型 · 最多三问" },
+    { "id": "short", "lane": "fallback", "col": 5, "type": "backend", "label": "交六百字短答", "sublabel": "研究后仍不足" }
+  ],
+  "edges": [
+    { "id": "e-call", "from": "user", "to": "load", "label": "写作请求", "variant": "emphasis", "role": "main", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e-load", "from": "load", "to": "gate", "label": "读入口规则", "variant": "emphasis", "role": "main", "fromSide": "right", "toSide": "left" },
+    { "id": "e-pass", "from": "gate", "to": "routing", "label": "材料过关", "variant": "emphasis", "role": "main", "labelDy": 58 },
+    { "id": "e-fail-research", "from": "gate", "to": "research", "label": "材料不足", "variant": "dashed", "role": "error", "fromSide": "bottom", "toSide": "top", "labelDx": -40 },
+    { "id": "e-recount", "from": "research", "to": "gate", "label": "重新计数", "role": "return", "fromSide": "top", "toSide": "bottom", "labelDx": 40 },
+    { "id": "e-research-ask", "from": "research", "to": "ask", "label": "需亲历", "variant": "dashed", "role": "branch", "labelDy": -26 },
+    { "id": "e-ask-back", "from": "ask", "to": "routing", "label": "补齐材料", "role": "return", "fromSide": "top", "toSide": "bottom", "labelDy": -26, "labelDx": -12 },
+    { "id": "e-research-short", "from": "research", "to": "short", "label": "仍不足", "variant": "dashed", "role": "error", "fromSide": "bottom", "toSide": "bottom", "route": "bottom-channel" },
+    { "id": "e-route-refs", "from": "routing", "to": "refs", "label": "按任务命中", "variant": "emphasis", "role": "main", "fromSide": "right", "toSide": "top", "via": [[500, 243]], "labelSegment": 1 },
+    { "id": "e-refs-draft", "from": "refs", "to": "draft", "label": "带规则动笔", "variant": "emphasis", "role": "main", "fromSide": "bottom", "toSide": "top", "labelDy": 30 },
+    { "id": "e-draft-revise", "from": "draft", "to": "revise", "variant": "emphasis", "role": "main" },
+    { "id": "e-revise-check", "from": "revise", "to": "check", "label": "跑脚本", "variant": "emphasis", "role": "main", "fromSide": "bottom", "toSide": "top", "labelDx": 36 },
+    { "id": "e-check-retry", "from": "check", "to": "revise", "label": "未清零", "variant": "dashed", "role": "error", "fromSide": "top", "toSide": "bottom", "labelDx": -36 },
+    { "id": "e-check-deliver", "from": "check", "to": "deliver", "label": "禁令清零", "variant": "emphasis", "role": "main", "fromSide": "right", "toSide": "right", "route": "outside-right" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "主路径",
+      "items": [
+        "材料门槛先于提纲，非虚构列不出五件具体材料就不动笔",
+        "参考文件按任务命中才读取，revision.md 留到初稿之后",
+        "检查脚本失败就继续修改，直到硬禁令清零才交稿"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "材料关口",
+      "items": [
+        "事实型题目先检索公开材料，查到后回到门槛重新计数",
+        "亲历型材料一次问完，最多三个问题，不同时交稿",
+        "研究后仍不足就缩小题目，交六百字短答，宁可短也不凑字数"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "交付约束",
+      "items": [
+        "交稿只交作品本体，不展示提纲、规则检查与创作过程",
+        "虚构稿直接按授权创造，篇幅由场景和人物变化托住",
+        "不建立作者画像，不生成个人规则库或新的写作 Skill"
+      ]
+    }
+  ]
+}
