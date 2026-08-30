@@ -1,0 +1,104 @@
+{
+  "layout": "graph",
+  "direction": "down",
+  "style": "default",
+  "animation": "flow",
+  "title": {
+    "prefix": "human-writing",
+    "highlight": "一次调用的全过程",
+    "subtitle": "材料不足不硬写 · 初稿之后才改稿 · 禁令清零才交稿"
+  },
+  "signature": "@archscribe",
+  "nodes": [
+    {
+      "id": "invoke",
+      "label": "用户触发",
+      "icon": "user",
+      "accent": "cyan",
+      "icon_style": "illustrated",
+      "body": "写作任务加手里材料\n命中 skill 描述"
+    },
+    {
+      "id": "load",
+      "label": "读取规则",
+      "icon": "folder",
+      "accent": "purple",
+      "icon_style": "illustrated",
+      "body": "先读 SKILL.md\n按任务选参考文件"
+    },
+    {
+      "id": "material",
+      "label": "材料清点",
+      "icon": "clipboard",
+      "accent": "amber",
+      "icon_style": "hero",
+      "icon_size": "hero",
+      "body": "现实稿至少五件材料\n虚构稿按授权创造"
+    },
+    { "id": "gate1", "label": "够五件?", "kind": "decision" },
+    {
+      "id": "research",
+      "label": "补材料",
+      "icon": "scan",
+      "accent": "pink",
+      "icon_style": "illustrated",
+      "body": "检索公开材料\n或一次问完三句"
+    },
+    {
+      "id": "voice",
+      "label": "定位置",
+      "icon": "human",
+      "accent": "cyan",
+      "icon_style": "illustrated",
+      "body": "现实核事实 虚构守设定\n谁在说 凭什么知道"
+    },
+    {
+      "id": "draft",
+      "label": "写初稿",
+      "icon": "brain",
+      "accent": "purple",
+      "icon_style": "illustrated",
+      "body": "带着人和材料写\n白话打底 事情推进"
+    },
+    {
+      "id": "revise",
+      "label": "七遍改稿",
+      "icon": "review",
+      "accent": "pink",
+      "icon_style": "illustrated",
+      "body": "初稿后才读 revision.md\n先救人再清句子"
+    },
+    {
+      "id": "script",
+      "label": "脚本检查",
+      "icon": "terminal",
+      "accent": "amber",
+      "icon_style": "illustrated",
+      "body": "check_prose.py\n冒号破折号黑话清零"
+    },
+    { "id": "gate2", "label": "清零?", "kind": "decision" },
+    {
+      "id": "deliver",
+      "label": "交稿",
+      "kind": "terminal",
+      "accent": "green",
+      "body": "只交作品本身\n不展示内部过程"
+    }
+  ],
+  "edges": [
+    { "from": "invoke", "to": "load" },
+    { "from": "load", "to": "material" },
+    { "from": "material", "to": "gate1" },
+    { "from": "gate1", "to": "voice", "label": "够" },
+    { "from": "gate1", "to": "research", "label": "不够" },
+    { "from": "research", "to": "gate1", "kind": "loop", "label": "重新计数", "accent": "amber" },
+    { "from": "research", "to": "voice", "label": "仍不足写短答" },
+    { "from": "voice", "to": "draft" },
+    { "from": "draft", "to": "revise", "label": "初稿后" },
+    { "from": "revise", "to": "script" },
+    { "from": "script", "to": "gate2" },
+    { "from": "gate2", "to": "deliver", "label": "清零" },
+    { "from": "gate2", "to": "revise", "kind": "loop", "label": "继续修改", "accent": "pink" }
+  ],
+  "footer": "规则优先级 用户指定 > 现实承诺 > 具体文体 > 默认写法 · 只服务当前作品 不留作者画像"
+}
