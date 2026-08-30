@@ -5073,7 +5073,7 @@
         <path data-edge-from="ask" data-edge-to="routing" data-edge-label="补齐材料" data-edge-key="6" data-edge-id="e-ask-back" data-composition-points="430,713;430,476;430,476;430,269" d="M 430 713 L 430 476 L 430 476 L 430 269" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="research" data-edge-to="short" data-edge-label="仍不足" data-edge-key="7" data-edge-id="e-research-short" data-composition-points="300,765;300,797;625,797;625,765" d="M 300 765 L 300 797 L 625 797 L 625 765" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
         <path data-edge-from="routing" data-edge-to="refs" data-edge-label="按任务命中" data-edge-key="8" data-edge-id="e-route-refs" data-composition-points="476,243;500,243;500,333" d="M 476 243 L 500 243 L 500 333" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
-        <path data-edge-from="refs" data-edge-to="draft" data-edge-label="带规则动笔" data-edge-key="9" data-edge-id="e-refs-draft" data-composition-points="500,401;500,414;500,414;500,465" d="M 500 401 L 500 414 L 500 414 L 500 465" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="refs" data-edge-to="draft" data-edge-label="带规则动笔" data-edge-key="9" data-edge-id="e-refs-draft" data-composition-points="500,401;500,414;500,414;500,457" d="M 500 401 L 500 414 L 500 414 L 500 457" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <path data-edge-from="draft" data-edge-to="revise" data-edge-key="10" data-edge-id="e-draft-revise" data-composition-points="546,491;579,491" d="M 546 491 L 579 491" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <path data-edge-from="revise" data-edge-to="check" data-edge-label="跑脚本" data-edge-key="11" data-edge-id="e-revise-check" data-composition-points="632,517;632,538;632,538;632,581" d="M 632 517 L 632 538 L 632 538 L 632 581" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         <path data-edge-from="check" data-edge-to="revise" data-edge-label="未清零" data-edge-key="12" data-edge-id="e-check-retry" data-composition-points="618,581;618,538;618,538;618,517" d="M 618 581 L 618 538 L 618 538 L 618 517" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
@@ -5092,30 +5092,30 @@
           <text data-detail="context" x="88" y="131" class="t-muted" font-size="7.3" text-anchor="middle">使用 $human-writing</text>
         </g>
 
-        <g id="node-deliver" data-node-id="deliver" data-node-label="交稿" tabindex="0" role="button" aria-label="聚焦交稿，只交作品本体, 用户与交稿 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="只交作品本体" data-node-context="用户与交稿 › 写作 · 校验 · 交付">
-          <title>交稿 · 只交作品本体 · 用户与交稿 › 写作 · 校验 · 交付</title>
+        <g id="node-deliver" data-node-id="deliver" data-node-label="交稿" tabindex="0" role="button" aria-label="聚焦交稿，无文件 · 只交作品本体, 用户与交稿 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="无文件 · 只交作品本体" data-node-context="用户与交稿 › 写作 · 校验 · 交付">
+          <title>交稿 · 无文件 · 只交作品本体 · 用户与交稿 › 写作 · 校验 · 交付</title>
           <rect x="579" y="93" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="579" y="93" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(585 99) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="625" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">交稿</text>
-          <text data-detail="context" x="625" y="131" class="t-muted" font-size="8" text-anchor="middle">只交作品本体</text>
+          <text data-detail="context" x="625" y="131" class="t-muted" font-size="6.6" text-anchor="middle">无文件 · 只交作品本体</text>
         </g>
 
-        <g id="node-load" data-node-id="load" data-node-label="加载 SKILL.md" tabindex="0" role="button" aria-label="聚焦加载 SKILL.md，入口 · 编排核心, 编排与门槛 › 调用 · 加载" aria-pressed="false" data-node-kind="backend" data-node-sublabel="入口 · 编排核心" data-node-context="编排与门槛 › 调用 · 加载">
-          <title>加载 SKILL.md · 入口 · 编排核心 · 编排与门槛 › 调用 · 加载</title>
+        <g id="node-load" data-node-id="load" data-node-label="加载 SKILL.md" tabindex="0" role="button" aria-label="聚焦加载 SKILL.md，读取 · 入口与编排规则, 编排与门槛 › 调用 · 加载" aria-pressed="false" data-node-kind="backend" data-node-sublabel="读取 · 入口与编排规则" data-node-context="编排与门槛 › 调用 · 加载">
+          <title>加载 SKILL.md · 读取 · 入口与编排规则 · 编排与门槛 › 调用 · 加载</title>
           <rect x="42" y="217" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="42" y="217" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(48 223) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="88" y="238" class="t-primary" font-size="10.7" font-weight="600" text-anchor="middle">加载 SKILL.md</text>
-          <text data-detail="context" x="88" y="255" class="t-muted" font-size="8" text-anchor="middle">入口 · 编排核心</text>
+          <text data-detail="context" x="88" y="255" class="t-muted" font-size="6.6" text-anchor="middle">读取 · 入口与编排规则</text>
         </g>
 
-        <g id="node-gate" data-node-id="gate" data-node-label="材料门槛" tabindex="0" role="button" aria-label="聚焦材料门槛，非虚构列五件材料, 编排与门槛 › 材料关口 · 分流" aria-pressed="false" data-node-kind="security" data-node-sublabel="非虚构列五件材料" data-node-tag="先于提纲" data-node-context="编排与门槛 › 材料关口 · 分流">
-          <title>材料门槛 · 非虚构列五件材料 · 编排与门槛 › 材料关口 · 分流 · 先于提纲</title>
+        <g id="node-gate" data-node-id="gate" data-node-label="材料门槛" tabindex="0" role="button" aria-label="聚焦材料门槛，依 SKILL.md · 五件材料, 编排与门槛 › 材料关口 · 分流" aria-pressed="false" data-node-kind="security" data-node-sublabel="依 SKILL.md · 五件材料" data-node-tag="先于提纲" data-node-context="编排与门槛 › 材料关口 · 分流">
+          <title>材料门槛 · 依 SKILL.md · 五件材料 · 编排与门槛 › 材料关口 · 分流 · 先于提纲</title>
           <rect x="254" y="209" width="92" height="68" rx="6" class="c-mask"/>
           <rect x="254" y="209" width="92" height="68" rx="6" class="c-security" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(260 215) scale(0.6875)">
@@ -5123,23 +5123,23 @@
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="300" y="230" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">材料门槛</text>
-          <text data-detail="context" x="300" y="247" class="t-muted" font-size="8" text-anchor="middle">非虚构列五件材料</text>
+          <text data-detail="context" x="300" y="247" class="t-muted" font-size="6.3" text-anchor="middle">依 SKILL.md · 五件材料</text>
         <text data-detail="fine" x="300" y="265" class="t-security" font-size="7" text-anchor="middle">先于提纲</text>
         </g>
 
-        <g id="node-routing" data-node-id="routing" data-node-label="文体分流" tabindex="0" role="button" aria-label="聚焦文体分流，现实 / 虚构 / 混合, 编排与门槛 › 材料关口 · 分流" aria-pressed="false" data-node-kind="backend" data-node-sublabel="现实 / 虚构 / 混合" data-node-context="编排与门槛 › 材料关口 · 分流">
-          <title>文体分流 · 现实 / 虚构 / 混合 · 编排与门槛 › 材料关口 · 分流</title>
+        <g id="node-routing" data-node-id="routing" data-node-label="文体分流" tabindex="0" role="button" aria-label="聚焦文体分流，依 SKILL.md · 按任务读, 编排与门槛 › 材料关口 · 分流" aria-pressed="false" data-node-kind="backend" data-node-sublabel="依 SKILL.md · 按任务读" data-node-context="编排与门槛 › 材料关口 · 分流">
+          <title>文体分流 · 依 SKILL.md · 按任务读 · 编排与门槛 › 材料关口 · 分流</title>
           <rect x="384" y="217" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="384" y="217" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(390 223) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="430" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">文体分流</text>
-          <text data-detail="context" x="430" y="255" class="t-muted" font-size="7.7" text-anchor="middle">现实 / 虚构 / 混合</text>
+          <text data-detail="context" x="430" y="255" class="t-muted" font-size="6.3" text-anchor="middle">依 SKILL.md · 按任务读</text>
         </g>
 
-        <g id="node-refs" data-node-id="refs" data-node-label="按需读参考文件" tabindex="0" role="button" aria-label="聚焦按需读参考文件，按文体命中加读, 规则加载 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="database" data-node-sublabel="按文体命中加读" data-node-tag="revision 留初稿后" data-node-context="规则加载 › 写作 · 校验 · 交付">
-          <title>按需读参考文件 · 按文体命中加读 · 规则加载 › 写作 · 校验 · 交付 · revision 留初稿后</title>
+        <g id="node-refs" data-node-id="refs" data-node-label="按需读参考文件" tabindex="0" role="button" aria-label="聚焦按需读参考文件，读命中 references/, 规则加载 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="database" data-node-sublabel="读命中 references/" data-node-tag="命中才读" data-node-context="规则加载 › 写作 · 校验 · 交付">
+          <title>按需读参考文件 · 读命中 references/ · 规则加载 › 写作 · 校验 · 交付 · 命中才读</title>
           <rect x="454" y="333" width="92" height="68" rx="6" class="c-mask"/>
           <rect x="454" y="333" width="92" height="68" rx="6" class="c-database" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(460 339) scale(0.6875)">
@@ -5147,57 +5147,58 @@
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="500" y="354" class="t-primary" font-size="10" font-weight="600" text-anchor="middle">按需读参考文件</text>
-          <text data-detail="context" x="500" y="371" class="t-muted" font-size="8" text-anchor="middle">按文体命中加读</text>
-        <text data-detail="fine" x="500" y="389" class="t-database" font-size="7" text-anchor="middle">revision 留初稿后</text>
+          <text data-detail="context" x="500" y="371" class="t-muted" font-size="7.7" text-anchor="middle">读命中 references/</text>
+        <text data-detail="fine" x="500" y="389" class="t-database" font-size="7" text-anchor="middle">命中才读</text>
         </g>
 
-        <g id="node-draft" data-node-id="draft" data-node-label="写初稿" tabindex="0" role="button" aria-label="聚焦写初稿，先内部定位说话位置, 写作执行 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="先内部定位说话位置" data-node-context="写作执行 › 写作 · 校验 · 交付">
-          <title>写初稿 · 先内部定位说话位置 · 写作执行 › 写作 · 校验 · 交付</title>
-          <rect x="454" y="465" width="92" height="52" rx="6" class="c-mask"/>
-          <rect x="454" y="465" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(460 471) scale(0.6875)">
+        <g id="node-draft" data-node-id="draft" data-node-label="写初稿" tabindex="0" role="button" aria-label="聚焦写初稿，先定位说话位置, 写作执行 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="先定位说话位置" data-node-tag="无新文件" data-node-context="写作执行 › 写作 · 校验 · 交付">
+          <title>写初稿 · 先定位说话位置 · 写作执行 › 写作 · 校验 · 交付 · 无新文件</title>
+          <rect x="454" y="457" width="92" height="68" rx="6" class="c-mask"/>
+          <rect x="454" y="457" width="92" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(460 463) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="500" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">写初稿</text>
-          <text data-detail="context" x="500" y="503" class="t-muted" font-size="7.7" text-anchor="middle">先内部定位说话位置</text>
+          <text data-node-label="" data-detail-anchor="" x="500" y="478" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">写初稿</text>
+          <text data-detail="context" x="500" y="495" class="t-muted" font-size="8" text-anchor="middle">先定位说话位置</text>
+        <text data-detail="fine" x="500" y="513" class="t-backend" font-size="7" text-anchor="middle">无新文件</text>
         </g>
 
-        <g id="node-revise" data-node-id="revise" data-node-label="逐遍改稿" tabindex="0" role="button" aria-label="聚焦逐遍改稿，读 revision.md, 写作执行 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="读 revision.md" data-node-context="写作执行 › 写作 · 校验 · 交付">
-          <title>逐遍改稿 · 读 revision.md · 写作执行 › 写作 · 校验 · 交付</title>
+        <g id="node-revise" data-node-id="revise" data-node-label="逐遍改稿" tabindex="0" role="button" aria-label="聚焦逐遍改稿，初稿后读 revision.md, 写作执行 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="初稿后读 revision.md" data-node-context="写作执行 › 写作 · 校验 · 交付">
+          <title>逐遍改稿 · 初稿后读 revision.md · 写作执行 › 写作 · 校验 · 交付</title>
           <rect x="579" y="465" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="579" y="465" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(585 471) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="625" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">逐遍改稿</text>
-          <text data-detail="context" x="625" y="503" class="t-muted" font-size="8" text-anchor="middle">读 revision.md</text>
+          <text data-detail="context" x="625" y="503" class="t-muted" font-size="7" text-anchor="middle">初稿后读 revision.md</text>
         </g>
 
-        <g id="node-check" data-node-id="check" data-node-label="禁令检查" tabindex="0" role="button" aria-label="聚焦禁令检查，check_prose.py, 校验 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="check_prose.py" data-node-tag="失败继续修改" data-node-context="校验 › 写作 · 校验 · 交付">
-          <title>禁令检查 · check_prose.py · 校验 › 写作 · 校验 · 交付 · 失败继续修改</title>
+        <g id="node-check" data-node-id="check" data-node-label="禁令检查" tabindex="0" role="button" aria-label="聚焦禁令检查，执行 check_prose.py, 校验 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="执行 check_prose.py" data-node-tag="失败继续修改" data-node-context="校验 › 写作 · 校验 · 交付">
+          <title>禁令检查 · 执行 check_prose.py · 校验 › 写作 · 校验 · 交付 · 失败继续修改</title>
           <rect x="579" y="581" width="92" height="68" rx="6" class="c-mask"/>
           <rect x="579" y="581" width="92" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(585 587) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="625" y="602" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">禁令检查</text>
-          <text data-detail="context" x="625" y="619" class="t-muted" font-size="8" text-anchor="middle">check_prose.py</text>
+          <text data-detail="context" x="625" y="619" class="t-muted" font-size="7.3" text-anchor="middle">执行 check_prose.py</text>
         <text data-detail="fine" x="625" y="637" class="t-backend" font-size="7" text-anchor="middle">失败继续修改</text>
         </g>
 
-        <g id="node-research" data-node-id="research" data-node-label="检索补材料" tabindex="0" role="button" aria-label="聚焦检索补材料，事实型 · 公开来源, 材料不足处理 › 材料关口 · 分流" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="事实型 · 公开来源" data-node-context="材料不足处理 › 材料关口 · 分流">
-          <title>检索补材料 · 事实型 · 公开来源 · 材料不足处理 › 材料关口 · 分流</title>
+        <g id="node-research" data-node-id="research" data-node-label="检索补材料" tabindex="0" role="button" aria-label="聚焦检索补材料，仓库外检索 · 公开来源, 材料不足处理 › 材料关口 · 分流" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="仓库外检索 · 公开来源" data-node-context="材料不足处理 › 材料关口 · 分流">
+          <title>检索补材料 · 仓库外检索 · 公开来源 · 材料不足处理 › 材料关口 · 分流</title>
           <rect x="254" y="713" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="254" y="713" width="92" height="52" rx="6" class="c-cloud" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(260 719) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="300" y="734" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">检索补材料</text>
-          <text data-detail="context" x="300" y="751" class="t-muted" font-size="8" text-anchor="middle">事实型 · 公开来源</text>
+          <text data-detail="context" x="300" y="751" class="t-muted" font-size="6.6" text-anchor="middle">仓库外检索 · 公开来源</text>
         </g>
 
-        <g id="node-ask" data-node-id="ask" data-node-label="追问用户" tabindex="0" role="button" aria-label="聚焦追问用户，亲历型 · 最多三问, 材料不足处理 › 材料关口 · 分流" aria-pressed="false" data-node-kind="external" data-node-sublabel="亲历型 · 最多三问" data-node-context="材料不足处理 › 材料关口 · 分流">
-          <title>追问用户 · 亲历型 · 最多三问 · 材料不足处理 › 材料关口 · 分流</title>
+        <g id="node-ask" data-node-id="ask" data-node-label="追问用户" tabindex="0" role="button" aria-label="聚焦追问用户，无文件 · 最多三问, 材料不足处理 › 材料关口 · 分流" aria-pressed="false" data-node-kind="external" data-node-sublabel="无文件 · 最多三问" data-node-context="材料不足处理 › 材料关口 · 分流">
+          <title>追问用户 · 无文件 · 最多三问 · 材料不足处理 › 材料关口 · 分流</title>
           <rect x="384" y="713" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="384" y="713" width="92" height="52" rx="6" class="c-external" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(390 719) scale(0.6875)">
@@ -5205,18 +5206,18 @@
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="430" y="734" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">追问用户</text>
-          <text data-detail="context" x="430" y="751" class="t-muted" font-size="8" text-anchor="middle">亲历型 · 最多三问</text>
+          <text data-detail="context" x="430" y="751" class="t-muted" font-size="8" text-anchor="middle">无文件 · 最多三问</text>
         </g>
 
-        <g id="node-short" data-node-id="short" data-node-label="交六百字短答" tabindex="0" role="button" aria-label="聚焦交六百字短答，研究后仍不足, 材料不足处理 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="研究后仍不足" data-node-context="材料不足处理 › 写作 · 校验 · 交付">
-          <title>交六百字短答 · 研究后仍不足 · 材料不足处理 › 写作 · 校验 · 交付</title>
+        <g id="node-short" data-node-id="short" data-node-label="交六百字短答" tabindex="0" role="button" aria-label="聚焦交六百字短答，无新文件 · 缩小题目, 材料不足处理 › 写作 · 校验 · 交付" aria-pressed="false" data-node-kind="backend" data-node-sublabel="无新文件 · 缩小题目" data-node-context="材料不足处理 › 写作 · 校验 · 交付">
+          <title>交六百字短答 · 无新文件 · 缩小题目 · 材料不足处理 › 写作 · 校验 · 交付</title>
           <rect x="579" y="713" width="92" height="52" rx="6" class="c-mask"/>
           <rect x="579" y="713" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(585 719) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="625" y="734" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">交六百字短答</text>
-          <text data-detail="context" x="625" y="751" class="t-muted" font-size="8" text-anchor="middle">研究后仍不足</text>
+          <text data-detail="context" x="625" y="751" class="t-muted" font-size="7.3" text-anchor="middle">无新文件 · 缩小题目</text>
         </g>
 
         <!-- Edge labels -->
@@ -5505,6 +5506,20 @@
           <li>&bull; 事实型题目先检索公开材料，查到后回到门槛重新计数</li>
           <li>&bull; 亲历型材料一次问完，最多三个问题，不同时交稿</li>
           <li>&bull; 研究后仍不足就缩小题目，交六百字短答，宁可短也不凑字数</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-dot violet"></div>
+          <h3>文件与脚本</h3>
+        </div>
+        <ul>
+          <li>&bull; SKILL.md 是唯一入口，调用即读取，后续编排、门槛与分流都凭它</li>
+          <li>&bull; 参考文件只读命中的部分，混合任务可读多个，不为保险全读</li>
+          <li>&bull; references/revision.md 固定留到初稿之后才首次读取</li>
+          <li>&bull; scripts/check_prose.py 是唯一被执行的文件，改稿循环中反复调用</li>
+          <li>&bull; agents/openai.yaml 与 dist/ 是分发产物，调用过程不读取</li>
         </ul>
       </div>
 

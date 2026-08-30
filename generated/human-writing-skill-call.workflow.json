@@ -44,17 +44,17 @@
   "mainPath": ["user", "load", "gate", "routing", "refs", "draft", "revise", "check", "deliver"],
   "nodes": [
     { "id": "user", "lane": "ui", "col": 0, "type": "external", "label": "用户调用", "sublabel": "使用 $human-writing" },
-    { "id": "deliver", "lane": "ui", "col": 5, "type": "backend", "label": "交稿", "sublabel": "只交作品本体" },
-    { "id": "load", "lane": "flow", "col": 0, "type": "backend", "label": "加载 SKILL.md", "sublabel": "入口 · 编排核心" },
-    { "id": "gate", "lane": "flow", "col": 2, "type": "security", "label": "材料门槛", "sublabel": "非虚构列五件材料", "tag": "先于提纲" },
-    { "id": "routing", "lane": "flow", "col": 3, "type": "backend", "label": "文体分流", "sublabel": "现实 / 虚构 / 混合" },
-    { "id": "refs", "lane": "rules", "col": 4, "type": "database", "label": "按需读参考文件", "sublabel": "按文体命中加读", "tag": "revision 留初稿后" },
-    { "id": "draft", "lane": "writing", "col": 4, "type": "backend", "label": "写初稿", "sublabel": "先内部定位说话位置" },
-    { "id": "revise", "lane": "writing", "col": 5, "type": "backend", "label": "逐遍改稿", "sublabel": "读 revision.md" },
-    { "id": "check", "lane": "verify", "col": 5, "type": "backend", "label": "禁令检查", "sublabel": "check_prose.py", "tag": "失败继续修改" },
-    { "id": "research", "lane": "fallback", "col": 2, "type": "cloud", "label": "检索补材料", "sublabel": "事实型 · 公开来源" },
-    { "id": "ask", "lane": "fallback", "col": 3, "type": "external", "label": "追问用户", "sublabel": "亲历型 · 最多三问" },
-    { "id": "short", "lane": "fallback", "col": 5, "type": "backend", "label": "交六百字短答", "sublabel": "研究后仍不足" }
+    { "id": "deliver", "lane": "ui", "col": 5, "type": "backend", "label": "交稿", "sublabel": "无文件 · 只交作品本体" },
+    { "id": "load", "lane": "flow", "col": 0, "type": "backend", "label": "加载 SKILL.md", "sublabel": "读取 · 入口与编排规则" },
+    { "id": "gate", "lane": "flow", "col": 2, "type": "security", "label": "材料门槛", "sublabel": "依 SKILL.md · 五件材料", "tag": "先于提纲" },
+    { "id": "routing", "lane": "flow", "col": 3, "type": "backend", "label": "文体分流", "sublabel": "依 SKILL.md · 按任务读" },
+    { "id": "refs", "lane": "rules", "col": 4, "type": "database", "label": "按需读参考文件", "sublabel": "读命中 references/", "tag": "命中才读" },
+    { "id": "draft", "lane": "writing", "col": 4, "type": "backend", "label": "写初稿", "sublabel": "先定位说话位置", "tag": "无新文件" },
+    { "id": "revise", "lane": "writing", "col": 5, "type": "backend", "label": "逐遍改稿", "sublabel": "初稿后读 revision.md" },
+    { "id": "check", "lane": "verify", "col": 5, "type": "backend", "label": "禁令检查", "sublabel": "执行 check_prose.py", "tag": "失败继续修改" },
+    { "id": "research", "lane": "fallback", "col": 2, "type": "cloud", "label": "检索补材料", "sublabel": "仓库外检索 · 公开来源" },
+    { "id": "ask", "lane": "fallback", "col": 3, "type": "external", "label": "追问用户", "sublabel": "无文件 · 最多三问" },
+    { "id": "short", "lane": "fallback", "col": 5, "type": "backend", "label": "交六百字短答", "sublabel": "无新文件 · 缩小题目" }
   ],
   "edges": [
     { "id": "e-call", "from": "user", "to": "load", "label": "写作请求", "variant": "emphasis", "role": "main", "fromSide": "bottom", "toSide": "top" },
@@ -89,6 +89,17 @@
         "事实型题目先检索公开材料，查到后回到门槛重新计数",
         "亲历型材料一次问完，最多三个问题，不同时交稿",
         "研究后仍不足就缩小题目，交六百字短答，宁可短也不凑字数"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "文件与脚本",
+      "items": [
+        "SKILL.md 是唯一入口，调用即读取，后续编排、门槛与分流都凭它",
+        "参考文件只读命中的部分，混合任务可读多个，不为保险全读",
+        "references/revision.md 固定留到初稿之后才首次读取",
+        "scripts/check_prose.py 是唯一被执行的文件，改稿循环中反复调用",
+        "agents/openai.yaml 与 dist/ 是分发产物，调用过程不读取"
       ]
     },
     {
